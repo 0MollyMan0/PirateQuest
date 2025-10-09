@@ -1,6 +1,7 @@
 import pygame
 pygame.init()
 from map import MapManager
+from player import Player
 
 class Game:
 
@@ -10,6 +11,7 @@ class Game:
         pygame.display.set_caption("PirateQuest")
 
         self.map_manager = MapManager(self.screen_size)
+        self.player = Player()
         self.running = True
 
     def run(self):
@@ -20,6 +22,7 @@ class Game:
             
             self.screen.fill((0, 0, 0))
             self.map_manager.render(self.screen, (0,0))
+            self.player.draw(self.screen, self.screen_size)
             pygame.display.flip()
         pygame.quit()
 
